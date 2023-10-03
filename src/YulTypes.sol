@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.13;
 
 /// @title  Simple Contract Explain Yul Types
@@ -5,7 +7,7 @@ pragma solidity ^0.8.13;
 /// @notice This is just listing the yul types
 
 contract YulTypes {
-    function getUint256() external  pure returns (uint256) {
+    function getUint256() external pure returns (uint256) {
         uint256 value;
         assembly {
             value := 256
@@ -29,5 +31,15 @@ contract YulTypes {
         }
 
         return _rep;
+    }
+
+    function getBool() external pure returns (bool) {
+        bool _value;
+
+        assembly {
+            _value := 1
+        }
+
+        return _value;
     }
 }
