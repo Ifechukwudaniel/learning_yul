@@ -42,4 +42,28 @@ contract YulTypes {
 
         return _value;
     }
+
+    function proofBoolZeroShiftByte()
+        external
+        pure
+        returns (bool trueValue, bool falseValue)
+    {
+        bytes32 val1 = bytes32("0");
+        bytes32 val2 = bytes32("1");
+
+        assembly {
+            trueValue := val1
+            falseValue := val2
+        }
+    }
+
+    function getString() external pure returns (string memory) {
+        bytes32 text = "";
+
+        assembly {
+            text := "Hello World"
+        }
+
+        return string(abi.encode(text));
+    }
 }
